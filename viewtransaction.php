@@ -54,7 +54,54 @@
 
         <!-- PHP append na lang based sa results sa DB, tsaka PHP din sa clickable table,  !-->
         <tbody class="dsp">
-          <tr>
+          <tr class="modal-trigger" href="#modal1">
+          	<div id="modal1" class="modal">
+          		<div class="modal-content">
+	          		<h4>Edit Transaction</h4>
+	          		<form class="col s12">
+						<div class="row">
+							<div class="input-field col s4">
+								<input id="dealer_no" type="text" class="validate">
+								<label for="dealer_no">Dealer No.</label>
+							</div>
+						</div>
+						<div class="row">
+							<div class="input-field col s8">
+								<label class="active">Date of Transaction</label>
+								<input id="date_created" type="date" value="<?php echo date('Y-m-d'); ?>"></input>
+							</div>
+						</div>
+						<div class="row">
+					        <div class="input-field col s12">
+					        	<input id="full_name" type="text" class="validate">
+					        	<label for="full_name">Name</label>
+					        </div>
+					    </div>
+					    <div class="row">
+					        <div class="input-field col s4">
+						        <input id="amount" type="text" class="validate">
+						        <label for="amount">Amount</label>
+					        </div>
+					        <div class="input-field col s4">
+					        	<select>
+					        		<option value="1">SUN</option>
+					        		<option value="2">SMART</option>
+					        	</select>
+					          <label>Network</label>
+					        </div>
+					        <div class="input-field col s4">
+					          <input id="balance" type="text" class="validate">
+					          <label for="balance">Balance</label>
+					        </div>
+					    </div>
+					    <div class="col m12">
+					    <p class="right-align">
+					    	<button class="btn btn-large waves-effect waves-light" type="button" name="action">Edit Transaction</button>
+					    </p>
+					    </div>
+					</form>
+	          	</div>
+          	</div>
           	<td>1</td>
           	<td>2</td>
           	<td>3</td>
@@ -82,6 +129,12 @@
     //$('.modal-trigger').openModal();
     //$('#modal1').openModal();
     $('select').material_select();
+    $(document).on('click', '.modal-trigger', function(e) {
+	    e.preventDefault();
+	    //you have to trigger modal like this
+	    //$(".modal-trigger").leanModal();
+	    $('#modal1').openModal();
+	  });
   });
 </script>
 </body>
