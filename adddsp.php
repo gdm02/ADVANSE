@@ -47,7 +47,7 @@
             <div class="collapsible-body">
               <ul>
                 <li class="active"><a href="#!">Add DSP</a></li>
-                <li><a href="./editdsp.php">Edit DSP</a></li>
+                <li><a href="./editdsp.php">Edit/View DSP</a></li>
                 <li><a href="./deletedsp.php">Delete DSP</a></li>
               </ul>
             </div>
@@ -69,6 +69,15 @@
 	        	<input id="full_name" type="text" class="validate">
 	        	<label for="full_name">Full Name</label>
 	        </div>
+	    </div>
+	    <div class="row">
+	    	<div class="input-field col s12">
+	    		<select class="dsp">
+	    			<option value="1">DSS1</option>
+	    		</select>
+	    		
+	    	<label>Assigned DSS</label>
+	    	</div>
 	    </div>
 	    <div class="row">
 	        <div class="input-field col s4">

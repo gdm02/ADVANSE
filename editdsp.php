@@ -45,7 +45,7 @@
             <div class="collapsible-body">
               <ul>
                 <li><a href="./adddsp.php">Add DSP</a></li>
-                <li class="active"><a href="./editdsp.php">Edit DSP</a></li>
+                <li class="active"><a href="./editdsp.php">Edit/View DSP</a></li>
                 <li><a href="./deletedsp.php">Delete DSP</a></li>
               </ul>
             </div>
@@ -55,29 +55,28 @@
     </ul>
 <br>
 <div class="container">
-	<form class="col s12">
-		<div class="row">
-	        <div class="input-field col s12">
-	          <input id="user_name" type="text" class="validate">
-	          <label for="user_name">User Name</label>
-	        </div>
-	    </div>
-	    <div class="row">
-	        <div class="input-field col s6">
-	          <input id="password" type="password" class="validate">
-	          <label for="password">Password</label>
-	        </div>
-		    <div class="input-field col s6">
-		    	<input id="confirm_password" type="password" class="validate">
-	        	<label for="confirm_password">Confirm Password</label>
-		    </div>
-	    </div>
-	    <div class="row">
-	    	<button class="btn waves-effect waves-light" type="submit" name="action">Register</button>
-	    </div>
-	</form>
-	test<br>
-Edit DSP<br>
+	<table class="responsive-table centered">
+        <thead>
+          <tr>
+              <th data-field="dealer_no">Dealer No.</th>
+              <th data-field="name">Name</th>
+              <th data-field="percentage">Percentage</th>
+              <th data-field="network">Network</th>
+              <th data-field="balance">Balance</th>
+          </tr>
+        </thead>
+
+        <!-- PHP append na lang based sa results sa DB !-->
+        <tbody class="dsp">
+          <tr>
+            <td>Test1</td>
+            <td>Gabriel del Mundo</td>
+            <td>50%</td>
+            <td>SUN</td>
+            <td>5000</td>
+          </tr>
+        </tbody>
+      </table>
 </div>
 
 
