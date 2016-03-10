@@ -46,7 +46,7 @@
     </div>
     <div class="col m12">
 	    <p class="right-align">
-	    	<button class="btn btn-large waves-effect waves-light" type="button" name="action">Add DSS</button>
+	    	<button class="btn btn-large waves-effect waves-light" type="button" name="action">Delete DSP</button>
 	    </p>
     </div>
 </div>

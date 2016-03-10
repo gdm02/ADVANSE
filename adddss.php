@@ -1,3 +1,6 @@
+<?php
+	$page = 'adddss';
+?>
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -27,35 +30,10 @@
 
 
 <body>
-
-
-<div class="navbar-fixed">
-<nav>
-    <div class="nav-wrapper">
-      <!--<a class="brand-logo">Register</a>-->
-      <ul id="nav-mobile" class="right hide-on-med-and-down">
-        <li><a href="./login.php">Login</a></li>
-        <li><a href="./register.php">Register</a></li>
-      </ul>
-    </div>
-  </nav>
- </div> <ul id="slide-out" class="side-nav fixed">
-      <li class="no-padding">
-        <ul class="collapsible collapsible-accordion">
-          <li>
-            <a class="collapsible-header active">Manage DSPs</a>
-            <div class="collapsible-body">
-              <ul>
-                <li class="active"><a href="#!">Add DSP</a></li>
-                <li><a href="./editdsp.php">Edit/View DSP</a></li>
-                <li><a href="./deletedsp.php">Delete DSP</a></li>
-              </ul>
-            </div>
-          </li>
-        </ul>
-      </li>
-    </ul>
-<br>
+<?php
+	include 'navbar.php';
+	include 'sidenav.php';
+?>
 <div class="container">
 	<form class="col s12">
 		<div class="row">
