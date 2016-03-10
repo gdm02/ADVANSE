@@ -1,3 +1,7 @@
+<?php
+	$page = 'deletedsp';
+?>
+
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -27,40 +31,23 @@
 
 
 <body>
-<div class="navbar-fixed">
-<nav>
-    <div class="nav-wrapper">
-      <!--<a class="brand-logo">Register</a>-->
-      <ul id="nav-mobile" class="right hide-on-med-and-down">
-        <li><a href="./login.php">Login</a></li>
-        <li><a href="./register.php">Register</a></li>
-      </ul>
-    </div>
-  </nav>
- </div> <ul id="slide-out" class="side-nav fixed">
-      <li class="no-padding">
-        <ul class="collapsible collapsible-accordion">
-          <li>
-            <a class="collapsible-header active">Manage DSPs</a>
-            <div class="collapsible-body">
-              <ul>
-                <li><a href="./adddsp.php">Add DSP</a></li>
-                <li><a href="./editdsp.php">Edit/View DSP</a></li>
-                <li class="active"><a href="./deletedsp.php">Delete DSP</a></li>
-              </ul>
-            </div>
-          </li>
-        </ul>
-      </li>
-    </ul>
-<br>
+<?php
+	include 'navbar.php';
+	include 'sidenav.php';
+?>
 <div class="container">
+	<form class="col s12">
 	<!-- Append na lang din dito, may class na !-->
 	<label>DSP Name</label>
 	<div class="input-field col s12">
     	<select class="dsp">
     		<option value="1">DSP1</option>
     	</select>
+    </div>
+    <div class="col m12">
+	    <p class="right-align">
+	    	<button class="btn btn-large waves-effect waves-light" type="button" name="action">Add DSS</button>
+	    </p>
     </div>
 </div>
 

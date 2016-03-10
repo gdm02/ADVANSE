@@ -1,3 +1,6 @@
+<?php
+	$page = 'editdsp';
+?>
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -27,35 +30,12 @@
 
 
 <body>
-<div class="navbar-fixed">
-<nav>
-    <div class="nav-wrapper">
-      <!--<a class="brand-logo">Register</a>-->
-      <ul id="nav-mobile" class="right hide-on-med-and-down">
-        <li><a href="./login.php">Login</a></li>
-        <li><a href="./register.php">Register</a></li>
-      </ul>
-    </div>
-  </nav>
- </div> <ul id="slide-out" class="side-nav fixed">
-      <li class="no-padding">
-        <ul class="collapsible collapsible-accordion">
-          <li>
-            <a class="collapsible-header active">Manage DSPs</a>
-            <div class="collapsible-body">
-              <ul>
-                <li><a href="./adddsp.php">Add DSP</a></li>
-                <li class="active"><a href="./editdsp.php">Edit/View DSP</a></li>
-                <li><a href="./deletedsp.php">Delete DSP</a></li>
-              </ul>
-            </div>
-          </li>
-        </ul>
-      </li>
-    </ul>
-<br>
+<?php
+	include 'navbar.php';
+	include 'sidenav.php';
+?>
 <div class="container">
-	<table class="responsive-table centered">
+	<table class="responsive-table centered highlight">
         <thead>
           <tr>
               <th data-field="dealer_no">Dealer No.</th>
@@ -66,21 +46,88 @@
           </tr>
         </thead>
 
-        <!-- PHP append na lang based sa results sa DB !-->
+        <!-- PHP append na lang based sa results sa DB, tsaka PHP din sa clickable table,  !-->
         <tbody class="dsp">
-          <tr>
-            <td>Test1</td>
-            <td>Gabriel del Mundo</td>
-            <td>50%</td>
-            <td>SUN</td>
-            <td>5000</td>
+          <tr class="modal-trigger" href="#modal1">
+          	<div id="modal1" class="modal">
+          		<div class="modal-content">
+	          		<h4>Edit DSP details</h4>
+	          		<form class="col s12">
+	          			<div class="row">
+							<div class="input-field col s4">
+								<input id="dealer_no" type="text" class="validate">
+								<label for="dealer_no">Dealer No.</label>
+							</div>
+						</div>
+						<div class="row">
+					        <div class="input-field col s12">
+					        	<input id="full_name" type="text" class="validate">
+					        	<label for="full_name">Full Name</label>
+					        </div>
+					    </div>
+					    <div class="row">
+					    	<div class="input-field col s12">
+					    		<select class="dsp">
+					    			<option value="1">DSS1</option>
+					    		</select>
+					    		
+					    	<label>Assigned DSS</label>
+					    	</div>
+					    </div>
+					    <div class="row">
+					        <div class="input-field col s4">
+						        <input id="percentage" type="number" min="0" max="100" class="validate">
+						        <label for="percentage">Percentage</label>
+					        </div>
+					        <div class="input-field col s4">
+					        	<select>
+					        		<option value="1">SUN</option>
+					        		<option value="2">SMART</option>
+					        	</select>
+					          <label>Network</label>
+					        </div>
+					        <div class="input-field col s4">
+					          <input id="balance" type="text" class="validate">
+					          <label for="balance">Balance</label>
+					        </div>
+					    </div>
+					    <div class="col m12">
+					    <p class="right-align">
+					    	<button class="btn btn-large waves-effect waves-light" type="button" name="action">Edit Details</button>
+					    </p>
+					    </div>
+	          		</form>
+	          	</div>
+          	</div>
+          	<td>Test1</td>
+          	<td>Test2</td>
+          	<td>Test3</td>
+          	<td>Test4</td>
+          	<td>Test5</td>
           </tr>
         </tbody>
+         
       </table>
+
 </div>
 
 
 <script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
 <script type="text/javascript" src="js/materialize.min.js"></script>
+
+<script>
+ $(document).ready(function(){
+    // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
+    //$('.modal-trigger').openModal();
+    //$('#modal1').openModal();
+    $('select').material_select();
+    $(document).on('click', '.modal-trigger', function(e) {
+	    e.preventDefault();
+	    //you have to trigger modal like this
+	    //$(".modal-trigger").leanModal();
+	    $('#modal1').openModal();
+	  });
+  });
+</script>
 </body>
 </html>
