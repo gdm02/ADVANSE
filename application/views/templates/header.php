@@ -1,8 +1,7 @@
-
 <!DOCTYPE HTML>
 <html>
 <head>
-     <!--Import Google Icon Font-->
+   <!--Import Google Icon Font-->
       <!--<link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">-->
       <!--Import materialize.css-->
       <link type="text/css" rel="stylesheet" href="<?php echo base_url(); ?>css/materialize.min.css"  media="screen,projection"/>
@@ -11,12 +10,12 @@
       <!--Let browser know website is optimized for mobile-->
       <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
       <style>
-      .side-nav.fixed {
+        .side-nav.fixed {
           left: 0;
           top: 64px;
           position: fixed;
         }
-        .container {
+      .container {
           padding-left: 240px;
         }
 
@@ -26,33 +25,57 @@
           }
         }
       </style>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>      
 </head>
 
+
 <body>  
-<div class="navbar-fixed">
 <nav>
     <div class="nav-wrapper">
-      <!--<a class="brand-logo">Register</a>-->
+      <!-- Add Strivers logo -->
+        <!--<a class="brand-logo">Register</a>-->
       <ul id="nav-mobile" class="right hide-on-med-and-down">
-        <li><a href="./login">Login</a></li>
-        <li><a href="./register">Register</a></li>
-      </ul>
+          <li<?php if ($page == 'login') echo ' class="active"'; ?>><a href="./login">Login</a></li>
+          <li<?php if ($page == 'register') echo ' class="active"' ?>><a href="./register">Register</a></li>
+          <li<?php if ($page == 'register') echo ' class="active"' ?>><a href="<?php echo site_url(); ?>/logoutController";>Logout</a></li>
+        </ul>
     </div>
   </nav>
- </div> 
-  <ul id="slide-out" class="side-nav fixed">
+<br>
+
+<ul id="slide-out" class="side-nav fixed">
+    <li<?php if ($page == 'adddss') echo ' class="active"'; ?>>
+      <a href="<?php echo site_url(); ?>/landingController/addDSS">Add DSS</a>
+    </li>
+    <li class="no-padding">
+      <ul class="collapsible collapsible-accordion">
+        <li>
+          <a class="collapsible-header active">Manage DSPs</a>
+          <div class="collapsible-body">
+            <ul>
+              <li<?php if ($page == 'adddsp') echo ' class="active"'; ?>><a href="<?php echo site_url(); ?>/landingController/addDSP";>Add DSP</a></li>
+              <li<?php if ($page == 'editdsp') echo ' class="active"'; ?>><a href="<?php echo site_url(); ?>/landingController/editDSP">Edit/View DSP</a></li>
+              <li<?php if ($page == 'deletedsp') echo ' class="active"'; ?>><a href="<?php echo site_url(); ?>/landingController/deleteDSP">Delete DSP</a></li>
+            </ul>
+          </div>
+        </li>
       <li class="no-padding">
         <ul class="collapsible collapsible-accordion">
           <li>
-            <a class="collapsible-header">Manage DSPs</a>
+            <a class=<?php echo '"collapsible-header'; if ($page == 'viewtransaction' || $page == 'addtransaction') echo ' active"'; else echo '"'; ?>>Manage Transactions</a>
             <div class="collapsible-body">
               <ul>
-                <li><a href="./manageDsp/addDsp">Add DSP</a></li>
-                <li><a href="./manageDsp/editDsp">Edit/View DSP</a></li>
-                <li><a href="./deletedsp.php">Delete DSP</a></li>
+                <li<?php if ($page == 'addtransaction') echo ' class="active"'; ?>><a href="<?php echo site_url(); ?>/landingController/addTransaction";>Add Transaction</a></li>
+                <li<?php if ($page == 'viewtransaction') echo ' class="active"'; ?>><a href="<?php echo site_url(); ?>/landingController/viewTransaction">Edit/View Transactions</a></li>
               </ul>
             </div>
           </li>
         </ul>
       </li>
-    </ul>
+      </ul>
+    </li>
+  </ul>
+<br>
+
+
+

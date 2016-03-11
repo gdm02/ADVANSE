@@ -9,6 +9,7 @@ Class User extends CI_Model
   }
  function login($username, $password)
  {
+   $this->db->select('*');
    $this -> db -> from('user');
    $this -> db -> where('username', $username);
    $this -> db -> where('password', MD5($password));
@@ -21,6 +22,7 @@ Class User extends CI_Model
     foreach($query->result() as $rows)
        {
         $newdata = array(
+          'userid' => $rows->user_id,
           'username'  => $rows->username,
           'firstname'  => $rows->firstname,
           'lastname'    => $rows->lastname,

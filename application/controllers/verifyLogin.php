@@ -20,16 +20,15 @@ class verifyLogin extends CI_Controller {
    if($this->form_validation->run() == FALSE)
    {
      //Field validation failed.  User redirected to login page
-     $this->load->view('templates/header');
+     $data['page'] = 'login';
+     $this->load->view('templates/header2', $data);
      $this->load->view('login');
      $this->load->view('templates/footer');
    }
    else
    {
      //Go to private area
-    $this->load->view('templates/header');
-    $this->load->view('index');
-    $this->load->view('templates/footer');
+    redirect('/landingController');
    }
  
  }
@@ -42,7 +41,7 @@ class verifyLogin extends CI_Controller {
    //query the database
    $result = $this->user->login($username, $password);
  
-   if($result)
+   if($result === true)
    {
      return TRUE;
    }

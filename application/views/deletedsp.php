@@ -1,78 +1,52 @@
-<!DOCTYPE HTML>
-<html>
-<head>
-	 <!--Import Google Icon Font-->
-      <!--<link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">-->
-      <!--Import materialize.css-->
-      <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
-      <!--Let browser know website is optimized for mobile-->
-      <style>
-      .side-nav.fixed {
-		  left: 0;
-		  top: 64px;
-		  position: fixed;
-		}
-		.container {
-	      padding-left: 240px;
-	    }
 
-	    @media only screen and (max-width : 992px) {
-	      header, main, footer {
-	        padding-left: 0;
-	      }
-	    }
-      </style>
-      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-</head>
-
-
-<body>
-<div class="navbar-fixed">
-<nav>
-    <div class="nav-wrapper">
-      <!--<a class="brand-logo">Register</a>-->
-      <ul id="nav-mobile" class="right hide-on-med-and-down">
-        <li><a href="./login.php">Login</a></li>
-        <li><a href="./register.php">Register</a></li>
-      </ul>
-    </div>
-  </nav>
- </div> <ul id="slide-out" class="side-nav fixed">
-      <li class="no-padding">
-        <ul class="collapsible collapsible-accordion">
-          <li>
-            <a class="collapsible-header active">Manage DSPs</a>
-            <div class="collapsible-body">
-              <ul>
-                <li><a href="./adddsp.php">Add DSP</a></li>
-                <li><a href="./editdsp.php">Edit/View DSP</a></li>
-                <li class="active"><a href="./deletedsp.php">Delete DSP</a></li>
-              </ul>
-            </div>
-          </li>
-        </ul>
-      </li>
-    </ul>
-<br>
 <div class="container">
+	<form class="col s12">
 	<!-- Append na lang din dito, may class na !-->
 	<label>DSP Name</label>
 	<div class="input-field col s12">
-    	<select class="dsp">
-    		<option value="1">DSP1</option>
+    	<select id="dsp" class="dsp">
+    		<?php foreach ($dsp as $dsp_item): ?>
+			    <option value="<?php echo $dsp_item->dsp_id; ?>"><?=$dsp_item->dsp_name?></option>
+			<?php endforeach; ?>
     	</select>
+    </div>
+    <div class="col m12">
+	    <p class="right-align">
+	    	<button id="delete" class="btn btn-large waves-effect waves-light" type="button" name="action">Delete DSP</button>
+	    </p>
     </div>
 </div>
 
 
-<script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
-<script type="text/javascript" src="js/materialize.min.js"></script>
 
 <script>
     $(document).ready(function() {
       $('select').material_select();
     });
+
+    var path = "<?php echo site_url(); ?>";
+	var app = "dspController";
+	$("#delete").click(function(e){
+		var target = $("#dsp").val();
+		$.ajax({
+			method: 'POST',
+	  		url: path + "/" + app + "/deleteDSP",
+	  		cache: false,
+	  		data: {dsp_id: target},
+	  		async:false,
+	  		success: function (data){
+	  			if(data.status == "success"){
+	  				alert("Deleted.");
+	  				$('#dsp option[value= "' + target + '"]').remove();
+	  				$('select').material_select();
+	  			}else{
+	  				alert("Error has occurred.");
+	  			}
+	  		},
+	  		error: function (data){
+	  			alert("Error has occurred.");
+	  		} 
+		});
+	});
 </script>
 
-</body>
-</html>

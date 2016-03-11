@@ -14,40 +14,37 @@ class dssController extends CI_Controller {
    }
  }
 
- function index(){
-   $this->load->view('templates/header');
-   $this->load->view('DSSPanel');
-   $this->load->view('templates/footer');
- }
- 
  function addDSS()
  {
-   $name = $this->input->post('dss_name');
-   $data = array(
-         'dss_name' => trim($name), 
-         );
+   $this->load->library('form_validation');
 
-   if($ret == false){
-      return "Error has occured.";
-   }else{
-      return "Added successfully.";
+   $this->form_validation->set_rules('full_name', 'Name', 'trim|required');
+
+   if($this->form_validation->run() == FALSE)
+   {
+     //Field validation failed.
+     $data['page'] = "adddss";
+     $this->load->view('templates/header', $data);
+     $this->load->view('adddss');
+     $this->load->view('templates/footer');
+   }
+   else
+   {
+     $name = $this->input->post('full_name');
+     $data = array(
+              'dss_name' => $name,  
+              );
+
+     $ret = $this->dss->addDSS($data);
+     if($ret === false){
+         $this->session->set_flashdata('message', 'Error has occured.');
+     }else{
+         $this->session->set_flashdata('message', 'Added Successfully.');
+     }
+    redirect('/landingController/addDSS');
    }
  }
 
- function editDSP()
- {
-
- }
-
- function deleteDSP()
- {
-
- }
-
- function assignDSStoDSP()
- {
-
- }
 
 
  
