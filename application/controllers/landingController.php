@@ -72,6 +72,7 @@ class landingController extends CI_Controller {
   function viewTransaction(){
    $data['page'] = "viewtransaction";
    $data['trans'] = $this->transaction->getAllTransaction();
+   $data['dsp'] = $this->dsp->getAllDSP();
    $data['sim'] = $this->globalSim->getAllSim();
    $this->load->view('templates/header', $data);
    $this->load->view('viewtransaction', $data);

@@ -18,6 +18,7 @@
         <tbody class="dsp">
          <?php foreach ($trans as $trans_item): ?>
          	<tr class="modal-trigger" href="#modal1" data-id="<?php echo $trans_item->transaction_id; ?>" id="<?php echo $trans_item->transaction_id; ?>">
+	          	<input class="dsp_id" type="hidden" value="<?php echo $trans_item->dsp_id; ?>">
 	          	<td class="dsp_name"><?php echo $trans_item->dsp_name; ?></td>
 	          	<td class="dealer_no"><?php echo $trans_item->dealer_no; ?></td>
 	          	<td class="sim"><?php echo strtoupper($trans_item->global_name); ?></td>
@@ -38,24 +39,24 @@
 			<div class="modal-content">
 				<h4>Edit Transaction</h4>
 				<form class="col s12">
-					<input type="hidden" value="" id="newid">
+					<input type="hidden" value="" id="modalid">
 				<div class="row">
 			        <div class="input-field col s12">
 			        	<select id="newname" name="dsp"readonly>
-			        		<option value="0"></option>
 			        		<?php foreach ($dsp as $dsp_item): ?>
 			        			<option value="<?php echo $dsp_item->dsp_id; ?>"><?=$dsp_item->dsp_name?></option>
 			        		<?php endforeach; ?>	
 			        	</select>
 			        </div>
 			    </div>
-				<div class="row">					
-					<select name="dealer_no"  id="newdealer_no" name="dealer_no" readonly>
-		        		<option value="0"></option>
-		        		<?php foreach ($dsp as $dsp_item): ?>
-		        			<option data-id="<?php echo $dsp_item->dsp_id; ?>" value="<?php echo $dsp_item->dealer_no; ?>"><?=$dsp_item->dealer_no?></option>
-		        		<?php endforeach; ?>	
-		        	</select>
+				<div class="row">	
+					<div class="input-field col s12">				
+						<select name="dealer_no"  id="newdealer_no" name="dealer_no" readonly>
+			        		<?php foreach ($dsp as $dsp_item): ?>
+			        			<option data-id="<?php echo $dsp_item->dsp_id; ?>" value="<?php echo $dsp_item->dealer_no; ?>"><?=$dsp_item->dealer_no?></option>
+			        		<?php endforeach; ?>	
+			        	</select>
+			        </div>
 				</div>
 
 				<div class="row">
@@ -100,7 +101,18 @@
 	    e.preventDefault();
 	    //you have to trigger modal like this
 	    //$(".modal-trigger").leanModal();
+
+	    var dataid = $(this).data('id');
+	    var dsp_id = $("#"+ dataid + " .dsp_id").val();
+	    var sim = $("#"+ dataid + " .sim").html();
+	    $('#modalid').val(dataid);
+	    $('#newname option[value= "' + dsp_id + '"]').attr("selected","selected");
+	    $('#newsim option[value= "' + sim + '"]').attr("selected","selected");
+	    $('#newdatecreated').val($("#"+ dataid + " .date_created").html());
+	    $('#newamount').val($("#"+ dataid + " .amount").html());
 	    $('#modal1').openModal();
+	    $('select').material_select();
+	    Materialize.updateTextFields();
 	  });
   });
 </script>
