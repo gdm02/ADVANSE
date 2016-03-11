@@ -36,7 +36,7 @@
 	include 'sidenav.php';
 ?>
 <div class="container">
-	<table class="responsive-table centered highlight">
+	<table class="responsive-table bordered centered highlight">
         <thead>
           <tr>
               <th data-field="transaction_id">Dealer No.</th>

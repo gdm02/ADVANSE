@@ -48,6 +48,10 @@
 				<label class="active">Date of Transaction</label>
 				<input id="date_created" type="date" value="<?php echo date('Y-m-d'); ?>"></input>
 			</div>
+			<div class="input-field col s4">
+				<input id="confirmation_no" type="text"></input>
+				<label for="confirmation_no">Confirmation No.</label>
+			</div>
 		</div>
 		<div class="row">
 	        <div class="input-field col s12">
