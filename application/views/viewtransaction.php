@@ -49,7 +49,7 @@
 			        	</select>
 			        </div>
 			    </div>
-				<div class="row">	
+<!-- 				<div class="row">	
 					<div class="input-field col s12">				
 						<select name="dealer_no"  id="newdealer_no" name="dealer_no" readonly>
 			        		<?php foreach ($dsp as $dsp_item): ?>
@@ -57,7 +57,7 @@
 			        		<?php endforeach; ?>	
 			        	</select>
 			        </div>
-				</div>
+				</div> -->
 
 				<div class="row">
 					<div class="input-field col s8">
@@ -115,5 +115,34 @@
 	    Materialize.updateTextFields();
 	  });
   });
+
+    var path = "<?php echo site_url(); ?>";
+	var app = "transactionController";
+	$("#edit").click(function(e){
+		var name = $("#newfull_name").val();
+		var network = $("#newnetwork").val();
+		var dealerNo = $("#newdealer_no").val();
+		var percentage = $("#newpercentage").val();
+		var balance = $("#newbalance").val();
+		var transaction_id = $("#modalid").val();
+		$.ajax({
+			method: 'POST',
+	  		url: path + "/" + app + "/editTransaction",
+	  		cache: false,
+	  		data: {dsp_id: dsp_id, full_name: name, network: network, dealer_no: dealerNo, percentage: percentage, balance: balance, dss:dss},
+	  		async:false,
+	  		success: function (data){
+	  			if(data.status == "success"){
+	  				location.reload();
+	  			}else{
+	  				alert("Error has occurred.");
+	  			}
+
+	  		},
+	  		error: function (data){
+	  			alert(data);
+	  		} 
+		});
+	});
 </script>
 
