@@ -45,6 +45,49 @@ class dssController extends CI_Controller {
    }
  }
 
+ function editDSS(){
+   $dss_id = $this->input->post('dss_id');
+   $name = $this->input->post('full_name');
+   $data = array( 
+            'dss_name' => $name
+            );
+   $ret = $this->dss->editDSS($data,$dss_id);
+     if($ret === false){
+        header('Content-type: application/json');
+        $response_array['status'] = 'failed';    
+        echo json_encode($response_array);
+     }else{
+        header('Content-type: application/json');
+        $response_array['status'] = 'success';    
+        echo json_encode($response_array);
+     }  
+
+ }
+
+ function deleteDSS(){
+   $dss_id = $this->input->post('dss_id');
+   $result = $this->dsp->getAllDSPbyDSS($dss_id);
+   $data = null;
+   if($result != NULL){
+   foreach($result as $row){
+      $data[] = array(
+        'dsp_id' => $row->dsp_id,
+        'dss_id' => 0
+        );
+     }
+   }
+   $ret = $this->dss->deleteDSS($dss_id, $data);
+     if($ret === false){
+        header('Content-type: application/json');
+        $response_array['status'] = 'failed';    
+        echo json_encode($response_array);
+     }else{
+        header('Content-type: application/json');
+        $response_array['status'] = 'success';    
+        echo json_encode($response_array);
+     }  
+ }
+
 
 
  

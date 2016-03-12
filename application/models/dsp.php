@@ -5,6 +5,14 @@ Class dsp extends CI_Model
     parent::__construct();
   }
 
+  function unassignDSP($dsp_id){
+  	  $data = array(
+  	  			'dss_id' => 0
+  	  			);
+	  $this->db->where('dsp_id', $dsp_id);
+	  $this->db->update('dsp', $data);
+  }
+
   function addDSP($data, $data2){
 	  	$this->db->trans_start();
 	  	$this->db->insert('dsp', $data);
@@ -35,6 +43,10 @@ Class dsp extends CI_Model
   function deleteDSP($dsp_id){
   	$this->db->where('dsp_id', $dsp_id);
 	$this->db->delete('dsp');
+	if($this->db->affected_rows() > 0){
+		return true;
+	}
+	return false;
   }
 
   function editDSP($data, $data2, $dsp_id){
@@ -86,6 +98,22 @@ Class dsp extends CI_Model
 	{
 	 return false;
 	} 	
+ }
+
+ function getAllDSPbyDSS($dss_id){
+ 	$this->db->select('*');
+  	$this->db->from('dsp');
+  	$this->db->where('dss_id', $dss_id);
+  	$query = $this->db->get();
+  	if($query -> num_rows() > 0)
+	{
+	  return $query->result();
+	}
+	else
+	{
+	 return false;
+	} 
+
  }
 
  function getDSPbyNetwork($network){

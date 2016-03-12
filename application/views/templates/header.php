@@ -46,6 +46,10 @@
 <ul id="slide-out" class="side-nav fixed">
     <li<?php if ($page == 'adddss') echo ' class="active"'; ?>>
       <a href="<?php echo site_url(); ?>/landingController/addDSS">Add DSS</a>
+
+    </li>
+    <li <?php if ($page == 'viewdss') echo ' class="active"'; ?> >
+      <a href="<?php echo site_url(); ?>/landingController/viewDSS">View DSS</a>
     </li>
     <li class="no-padding">
       <ul class="collapsible collapsible-accordion">
@@ -55,7 +59,6 @@
             <ul>
               <li<?php if ($page == 'adddsp') echo ' class="active"'; ?>><a href="<?php echo site_url(); ?>/landingController/addDSP";>Add DSP</a></li>
               <li<?php if ($page == 'editdsp') echo ' class="active"'; ?>><a href="<?php echo site_url(); ?>/landingController/editDSP">Edit/View DSP</a></li>
-              <li<?php if ($page == 'deletedsp') echo ' class="active"'; ?>><a href="<?php echo site_url(); ?>/landingController/deleteDSP">Delete DSP</a></li>
             </ul>
           </div>
         </li>

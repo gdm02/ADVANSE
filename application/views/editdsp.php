@@ -1,6 +1,6 @@
 
 <div class="container">
-	<table class="responsive-table bordered centered highlight">
+	<table id="dsptable" class="responsive-table bordered centered highlight">
         <thead>
           <tr>
 
@@ -77,6 +77,7 @@
 			    <div class="col m12">
 			    <p class="right-align">
 			    	<button id="edit" class="btn btn-large waves-effect waves-light" type="button" name="action">Edit Details</button>
+			    	<button id="delete" class="btn btn-large waves-effect waves-red red" type="button" name="action">Delete DSP</button>
 			    </p>
 			    </div>
       		</form>
@@ -141,6 +142,28 @@
 	  		},
 	  		error: function (data){
 	  			alert(data);
+	  		} 
+		});
+	});
+	$("#delete").click(function(e){
+		var target = $("#modalid").val();
+		$.ajax({
+			method: 'POST',
+	  		url: path + "/" + app + "/deleteDSP",
+	  		cache: false,
+	  		data: {dsp_id: target},
+	  		async:false,
+	  		success: function (data){
+	  			if(data.status == "success"){
+	  				alert("Deleted.");
+	  				location.reload();
+	  				$('#modal1').closeModal();
+	  			}else{
+	  				alert("Error has occurred.");
+	  			}
+	  		},
+	  		error: function (data){
+	  			alert("Error has occurred.");
 	  		} 
 		});
 	});

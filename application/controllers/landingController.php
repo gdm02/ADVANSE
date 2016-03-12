@@ -40,6 +40,14 @@ class landingController extends CI_Controller {
    $this->load->view('templates/footer');
  }
 
+  function viewDSS(){
+   $data['page'] = "viewdss";
+   $data['dss'] = $this->dss->getAllDSS();
+   $this->load->view('templates/header', $data);
+   $this->load->view('viewdss', $data);
+   $this->load->view('templates/footer');
+ }
+
  function editDSP()
  {
    $data['page'] = "editdsp";

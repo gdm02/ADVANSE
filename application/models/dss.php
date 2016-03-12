@@ -3,6 +3,7 @@ Class dss extends CI_Model
 {
   public function __construct() {
     parent::__construct();
+    $this->load->model('dsp','',TRUE);
   }
 
   function addDSS($data){
@@ -15,6 +16,16 @@ Class dss extends CI_Model
 
   }
 
+  function deleteDSS($dss_id, $data){
+  	$this->db->trans_start();
+  	if($data != null){
+  		$this->db->update_batch('dsp',$data, 'dsp_id'); 
+  	}
+  	$this->db->where('dss_id', $dss_id);
+	$this->db->delete('dss');
+	$this->db->trans_complete();
+  }
+
   function getAllDSS(){
   	$this->db->select('*');
   	$this->db->from('dss');
@@ -23,10 +34,11 @@ Class dss extends CI_Model
   }
 
 
-  function editDSS($data){
-	  $this->db->where('name', $username);
+  function editDSS($data, $dss_id){
+
+	  $this->db->where('dss_id', $dss_id);
 	  $this->db->update('dss', $data);
-	  if ($this->db->affected_rows() > 0) {
+	  if ($this->db->affected_rows() >= 0) {
 	    return true;
 	  }else {
 	    return false;
