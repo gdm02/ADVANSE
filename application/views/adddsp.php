@@ -26,7 +26,7 @@
 	    </div>
 	    <div class="row">
 	        <div class="input-field col s4">
-		        <input name="percentage" id="percentage" type="number" min="0" max="100" class="validate" value="0">
+		        <input name="percentage" id="percentage" type="number" min="0" max="100" class="validate" value="0" step="0.01" min="0">
 		        <label for="percentage">Percentage</label>
 	        </div>
 	        <div class="input-field col s4">

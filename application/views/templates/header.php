@@ -15,6 +15,12 @@
           top: 64px;
           position: fixed;
         }
+        <?php 
+          if ($page == 'viewtransaction') {
+            echo '.viewtrans { padding-left: 100px;}';
+          }
+
+        ?>
       .container {
           padding-left: 240px;
         }
@@ -46,7 +52,6 @@
 <ul id="slide-out" class="side-nav fixed">
     <li<?php if ($page == 'adddss') echo ' class="active"'; ?>>
       <a href="<?php echo site_url(); ?>/landingController/addDSS">Add DSS</a>
-
     </li>
     <li <?php if ($page == 'viewdss') echo ' class="active"'; ?> >
       <a href="<?php echo site_url(); ?>/landingController/viewDSS">View DSS</a>
@@ -54,7 +59,8 @@
     <li class="no-padding">
       <ul class="collapsible collapsible-accordion">
         <li>
-          <a class="collapsible-header active">Manage DSPs</a>
+          <!--<a class="collapsible-header active">Manage DSPs</a>-->
+          <a class=<?php echo '"collapsible-header'; if ($page == 'adddsp' || $page == 'editdsp') echo ' active"'; else echo '"'; ?>>Manage DSPs</a>
           <div class="collapsible-body">
             <ul>
               <li<?php if ($page == 'adddsp') echo ' class="active"'; ?>><a href="<?php echo site_url(); ?>/landingController/addDSP";>Add DSP</a></li>
@@ -62,6 +68,8 @@
             </ul>
           </div>
         </li>
+        </ul>
+      </li>
       <li class="no-padding">
         <ul class="collapsible collapsible-accordion">
           <li>

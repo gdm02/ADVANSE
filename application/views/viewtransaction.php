@@ -1,5 +1,5 @@
 
-<div class="container">
+<div class="viewtrans">
 	<table class="responsive-table bordered centered highlight">
         <thead>
           <tr>
@@ -82,9 +82,9 @@
 
 			    </div>
 			    <div class="col m12">
-			    <p class="right-align">
-			    	<button class="btn btn-large waves-effect waves-light" type="submit" name="action">Edit Transaction</button>
-			    </p>
+				    <p class="right-align">
+				    	<button class="btn btn-large waves-effect waves-light" type="submit" name="action">Edit Transaction</button>
+				    </p>
 			    </div>
 			</form>
 			</div>
