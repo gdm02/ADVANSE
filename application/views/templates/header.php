@@ -17,7 +17,7 @@
         }
         <?php 
           if ($page == 'viewtransaction') {
-            echo '.viewtrans { padding-left: 100px;}';
+            echo '.viewtrans { padding-left: 240px;}';
           }
 
         ?>
