@@ -42,7 +42,7 @@
         <!--<a class="brand-logo">Register</a>-->
       <ul id="nav-mobile" class="right hide-on-med-and-down">
           <li<?php if ($page == 'login') echo ' class="active"'; ?>><a href="./login">Login</a></li>
-          <li<?php if ($page == 'register') echo ' class="active"' ?>><a href="./register">Register</a></li>
+          <!--<li<?php if ($page == 'register') echo ' class="active"' ?>><a href="./register">Register</a></li>-->
           <li<?php if ($page == 'register') echo ' class="active"' ?>><a href="<?php echo site_url(); ?>/logoutController";>Logout</a></li>
         </ul>
     </div>
@@ -50,10 +50,14 @@
 <br>
 
 <ul id="slide-out" class="side-nav fixed">
+    <li<?php if ($page == 'search') echo ' class="active"'; ?>>
+      <!--<a href="<?php echo site_url(); ?>/landingController/search">Search</a>-->
+      <a href="/search.php">Search</a>
+    </li>
     <li<?php if ($page == 'adddss') echo ' class="active"'; ?>>
       <a href="<?php echo site_url(); ?>/landingController/addDSS">Add DSS</a>
     </li>
-    <li <?php if ($page == 'viewdss') echo ' class="active"'; ?> >
+    <li<?php if ($page == 'viewdss') echo ' class="active"'; ?>>
       <a href="<?php echo site_url(); ?>/landingController/viewDSS">View DSS</a>
     </li>
     <li class="no-padding">
@@ -85,6 +89,7 @@
       </li>
       </ul>
     </li>
+    
   </ul>
 <br>
 
