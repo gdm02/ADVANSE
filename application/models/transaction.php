@@ -42,36 +42,5 @@ Class transaction extends CI_Model
 	  }
   }
 
- function getDSSbyName($name){
- 	$this->db->select('*');
-	$this->db->from('dss');
-	$this->db-> where('dss_name', $name);
-	$this->db->limit(1);
-	$query = $this -> db -> get();
-	if($query -> num_rows() == 1)
-	{
-	  return $query->result();
-	}
-	else
-	{
-	 return false;
-	}
- }
-
- function getDSSbyID($id){
- 	$this->db->select('*');
-	$this->db->from('dss');
-	$this->db-> where('dss_id', $id);
-	$this->db->limit(1);
-	$query = $this -> db -> get();
-	if($query -> num_rows() == 1)
-	{
-	 return $query->result();
-	}
-	else
-	{
-	 return false;
-	}
- }
 
 }
