@@ -87,6 +87,13 @@ class landingController extends CI_Controller {
    $this->load->view('templates/footer');
  }
 
+   function searchTransaction(){
+   $data['page'] = "searchtransaction";
+   $this->load->view('templates/header', $data);
+   $this->load->view('searchtransaction', $data);
+   $this->load->view('templates/footer');
+ }
+
 
 
 }
