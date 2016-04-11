@@ -215,6 +215,5 @@ pip-log.txt
 #Mr Developer
 .mr.developer.cfg
 
-
-C:\xampp\htdocs\ADVANSE\application\config\database.php
+/database.php
 
