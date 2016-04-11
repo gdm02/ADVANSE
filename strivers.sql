@@ -1,8 +1,8 @@
 CREATE DATABASE IF NOT EXISTS strivers;
 USE strivers;
 
-DROP TABLE IF EXISTS `User`;
-CREATE TABLE `User` (
+DROP TABLE IF EXISTS `user`;
+CREATE TABLE `user` (
   `user_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `username` varchar(25) UNIQUE NOT NULL,
   `password` varchar(50) NOT NULL,
@@ -12,30 +12,30 @@ CREATE TABLE `User` (
   PRIMARY KEY (`user_id`)
 ) ENGINE=InnoDB;
 
-DROP TABLE IF EXISTS `DSS`;
-CREATE TABLE `DSS` (
+DROP TABLE IF EXISTS `dss`;
+CREATE TABLE `dss` (
   `dss_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `dss_name` varchar(50) NOT NULL,
   PRIMARY KEY (`dss_id`),
   INDEX(`dss_id`)
 ) ENGINE=InnoDB;
 
-DROP TABLE IF EXISTS `DSP`;
-CREATE TABLE `DSP` (
+DROP TABLE IF EXISTS `dsp`;
+CREATE TABLE `dsp` (
   `dsp_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `dss_id` int(10) unsigned,
   `dsp_name` varchar(50) NOT NULL,
   PRIMARY KEY (`dsp_id`),
   INDEX(`dsp_name`),
   INDEX(`dsp_id`),
-  Foreign key (`dss_id`) references DSS(`dss_id`)
+  Foreign key (`dss_id`) references dss(`dss_id`)
 	ON DELETE SET NULL
 ) ENGINE=InnoDB;
 
 
 
-DROP TABLE IF EXISTS `DSP_Details`;
-CREATE TABLE `DSP_Details` (
+DROP TABLE IF EXISTS `dsp_details`;
+CREATE TABLE `dsp_details` (
   `dsp_id` int(10) unsigned NOT NULL,
   `dealer_no` varchar(30) NOT NULL,
   `network` varchar(10) NOT NULL,
@@ -44,12 +44,12 @@ CREATE TABLE `DSP_Details` (
   PRIMARY KEY (`dealer_no`),
   INDEX(`dsp_id`),
   INDEX(`dealer_no`),
-  Foreign key (`dsp_id`) references DSP(`dsp_id`)
+  Foreign key (`dsp_id`) references dsp(`dsp_id`)
 	ON UPDATE CASCADE ON DELETE CASCADE
 ) ENGINE=InnoDB;
 
-DROP TABLE IF EXISTS `Global_Balance`;
-CREATE TABLE `Global_Balance` (
+DROP TABLE IF EXISTS `global_balance`;
+CREATE TABLE `global_balance` (
   `network` varchar(10) NOT NULL,
   `current_balance` double(20,4) NOT NULL,
   `global_name`    varchar(15) NOT NULL UNIQUE,
@@ -58,8 +58,8 @@ CREATE TABLE `Global_Balance` (
 ) ENGINE=InnoDB;
 
 
-DROP TABLE IF EXISTS `Load_Transaction`;
-CREATE TABLE `Load_Transaction` (
+DROP TABLE IF EXISTS `load_transaction`;
+CREATE TABLE `load_transaction` (
   `transaction_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `dsp_id` int(10) unsigned NOT NULL,
   `global_name` varchar(15) NOT NULL,
@@ -73,15 +73,15 @@ CREATE TABLE `Load_Transaction` (
   PRIMARY KEY (`transaction_id`),
   INDEX(`date_created`, `global_name`),
   INDEX(`dsp_id`),
-  Foreign key (`user_id`) references `User`(`user_id`)
+  Foreign key (`user_id`) references `user`(`user_id`)
 	ON UPDATE CASCADE,
-  Foreign key (`global_name`) references `Global_Balance`(`global_name`)
+  Foreign key (`global_name`) references `global_balance`(`global_name`)
 ) ENGINE=InnoDB;
 
 
 
-DROP TABLE IF EXISTS `Purchase_Order`;
-CREATE TABLE `Purchase_Order` (
+DROP TABLE IF EXISTS `purchase_order`;
+CREATE TABLE `purchase_order` (
   `purchase_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `global_name` varchar(15) NOT NULL,
   `amount` double(16,4) NOT NULL,
@@ -90,12 +90,12 @@ CREATE TABLE `Purchase_Order` (
   `run_bal` double(16,4) NOT NULL,
   PRIMARY KEY (`purchase_id`),
   INDEX(`date_created`),
-  Foreign key (`global_name`) references Global_Balance(`global_name`)
+  Foreign key (`global_name`) references global_balance(`global_name`)
 	ON UPDATE CASCADE
 ) ENGINE=InnoDB;
 
-DROP TABLE IF EXISTS `Transaction_History`;
-CREATE TABLE `Transaction_History` (
+DROP TABLE IF EXISTS `transaction_history`;
+CREATE TABLE `transaction_history` (
   `transaction_id` int(10) unsigned NOT NULL,
   `transaction_type` varchar(10),
   `status` varchar(10),
