@@ -52,13 +52,13 @@
 <ul id="slide-out" class="side-nav fixed">
     <li<?php if ($page == 'search') echo ' class="active"'; ?>>
       <!--<a href="<?php echo site_url(); ?>/landingController/search">Search</a>-->
-      <a href="<?php echo site_url(); ?>/landingController/searchTransaction">Search</a>
+      <a href="<?php echo site_url(); ?>landingController/searchTransaction">Search</a>
     </li>
     <li<?php if ($page == 'adddss') echo ' class="active"'; ?>>
-      <a href="<?php echo site_url(); ?>/landingController/addDSS">Add DSS</a>
+      <a href="<?php echo site_url(); ?>landingController/addDSS">Add DSS</a>
     </li>
     <li<?php if ($page == 'viewdss') echo ' class="active"'; ?>>
-      <a href="<?php echo site_url(); ?>/landingController/viewDSS">View DSS</a>
+      <a href="<?php echo site_url(); ?>landingController/viewDSS">View DSS</a>
     </li>
     <li class="no-padding">
       <ul class="collapsible collapsible-accordion">
@@ -67,8 +67,8 @@
           <a class=<?php echo '"collapsible-header'; if ($page == 'adddsp' || $page == 'editdsp') echo ' active"'; else echo '"'; ?>>Manage DSPs</a>
           <div class="collapsible-body">
             <ul>
-              <li<?php if ($page == 'adddsp') echo ' class="active"'; ?>><a href="<?php echo site_url(); ?>/landingController/addDSP";>Add DSP</a></li>
-              <li<?php if ($page == 'editdsp') echo ' class="active"'; ?>><a href="<?php echo site_url(); ?>/landingController/editDSP">Edit/View DSP</a></li>
+              <li<?php if ($page == 'adddsp') echo ' class="active"'; ?>><a href="<?php echo site_url(); ?>landingController/addDSP";>Add DSP</a></li>
+              <li<?php if ($page == 'editdsp') echo ' class="active"'; ?>><a href="<?php echo site_url(); ?>landingController/editDSP">Edit/View DSP</a></li>
             </ul>
           </div>
         </li>
@@ -80,8 +80,8 @@
             <a class=<?php echo '"collapsible-header'; if ($page == 'viewtransaction' || $page == 'addtransaction') echo ' active"'; else echo '"'; ?>>Manage Transactions</a>
             <div class="collapsible-body">
               <ul>
-                <li<?php if ($page == 'addtransaction') echo ' class="active"'; ?>><a href="<?php echo site_url(); ?>/landingController/addTransaction";>Add Transaction</a></li>
-                <li<?php if ($page == 'viewtransaction') echo ' class="active"'; ?>><a href="<?php echo site_url(); ?>/landingController/viewTransaction">Edit/View Transactions</a></li>
+                <li<?php if ($page == 'addtransaction') echo ' class="active"'; ?>><a href="<?php echo site_url(); ?>landingController/addTransaction";>Add Transaction</a></li>
+                <li<?php if ($page == 'viewtransaction') echo ' class="active"'; ?>><a href="<?php echo site_url(); ?>landingController/viewTransaction">Edit/View Transactions</a></li>
               </ul>
             </div>
           </li>
