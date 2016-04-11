@@ -3,7 +3,7 @@
 <br>
 <div class="container">
    
-   <?php echo form_open('verifyLogin'); ?>
+   <?php echo form_open('VerifyLogin'); ?>
 		<div class="row">
 	        <div class="input-field col s12">
 	          <input name="username" id="username" type="text" class="validate">
