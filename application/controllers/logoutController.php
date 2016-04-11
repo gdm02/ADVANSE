@@ -1,6 +1,6 @@
 <?php
 
-class logoutController extends CI_Controller {
+class LogoutController extends CI_Controller {
  
  function __construct()
  {

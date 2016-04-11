@@ -1,6 +1,6 @@
 <?php
 
-class verifyLogin extends CI_Controller {
+class VerifyLogin extends CI_Controller {
  
  function __construct()
  {

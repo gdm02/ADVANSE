@@ -1,6 +1,6 @@
 <?php
 
-class dssController extends CI_Controller {
+class DssController extends CI_Controller {
  
  function __construct()
  {

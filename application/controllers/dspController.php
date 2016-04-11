@@ -1,6 +1,6 @@
 <?php
 
-class dspController extends CI_Controller {
+class DspController extends CI_Controller {
  
  function __construct()
  {

@@ -1,6 +1,6 @@
 <?php
 
-class transactionController extends CI_Controller {
+class TransactionController extends CI_Controller {
  
  function __construct()
  {

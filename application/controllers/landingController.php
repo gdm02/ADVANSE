@@ -1,6 +1,6 @@
 <?php
 
-class landingController extends CI_Controller {
+class LandingController extends CI_Controller {
  
  function __construct()
  {

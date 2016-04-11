@@ -75,7 +75,7 @@ CREATE TABLE `Load_Transaction` (
   INDEX(`dsp_id`),
   Foreign key (`user_id`) references `User`(`user_id`)
 	ON UPDATE CASCADE,
-  Foreign key (`global_name`) references `global_balance`(`global_name`)
+  Foreign key (`global_name`) references `Global_Balance`(`global_name`)
 ) ENGINE=InnoDB;
 
 

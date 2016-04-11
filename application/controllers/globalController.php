@@ -1,6 +1,6 @@
 <?php
 
-class globalController extends CI_Controller {
+class GlobalController extends CI_Controller {
  
  function __construct()
  {
