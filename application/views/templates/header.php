@@ -52,7 +52,7 @@
 <ul id="slide-out" class="side-nav fixed">
     <li<?php if ($page == 'search') echo ' class="active"'; ?>>
       <!--<a href="<?php echo site_url(); ?>/landingController/search">Search</a>-->
-      <a href="/searchTransaction.php">Search</a>
+      <a href="/landingController/searchTransaction.php">Search</a>
     </li>
     <li<?php if ($page == 'adddss') echo ' class="active"'; ?>>
       <a href="<?php echo site_url(); ?>/landingController/addDSS">Add DSS</a>
